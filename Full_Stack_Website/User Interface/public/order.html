@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Order</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Material Store
+        </a>
+    </header>
+
+
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+        <!-- Put in actual filters -->
+        <p><input type="checkbox" name="ID" checked="checked" />ID</p>
+        <p><input type="checkbox" name="ProductID" checked="checked" /> ProductID</p>
+        <p><input type="checkbox" name="Product" checked="checked" /> Product</p>
+        <p><input type="checkbox" name="Quantity" checked="checked" /> Quantity</p>
+        <p><input type="checkbox" name="OrderUnitPrice" checked="checked" />OrderUnitPrice</p>
+        <p><input type="checkbox" name="DateOfOrder" checked="checked" />DateOfOrder</p>
+        <p><input type="checkbox" name="Driver" checked="checked" />Driver</p>
+        <p><input type="checkbox" name="SellTo" checked="checked" /> SellTo</p>
+        <p><input type="checkbox" name="ShippingAddresss" checked="checked" />ShippingAddresss</p>
+        <p><input type="checkbox" name="ArriveDeadline" checked="checked" /> ArriveDeadline</p>
+        <p><input type="checkbox" name="DateArrived" checked="checked" /> DateArrived</p>
+        <hr>
+
+        <form  method="Get">
+          <div>
+            <label for="OrderSearID" class="modal-labels">ID</label>
+            <input type="text" class="input-textbox" id="OrderSearID">
+          </div>
+          <div>
+            <label for="OrderSearProvince" class="modal-labels">Province</label>
+            <input type="text" class="input-textbox" id="OrderSearProvince">
+          </div>
+          <div>
+            <label for="OrderSearCity" class="modal-labels">City</label>
+            <input type="text" class="input-textbox" id="OrderSearCity">
+          </div>
+          <div>
+            <label for="OrderSearSellTo" class="modal-labels">SellTo</label>
+            <input type="text" class="input-textbox" id="OrderSearSellTo">
+          </div>
+          <div>
+            <label for="OrderSearProductID" class="modal-labels">ProductID</label>
+            <input type="text" class="input-textbox" id="OrderSearProductID">
+          </div>
+          <div>
+            <label for="OrderSearQuantityMax" class="modal-labels">QuantityMax</label>
+            <input type="text" class="input-textbox" id="OrderSearQuantityMax">
+          </div>
+          <div>
+            <label for="OrderSearQuantityMin" class="modal-labels">QuantityMin</label>
+            <input type="text" class="input-textbox" id="OrderSearQuantityMin">
+          </div>
+          <div>
+            <label for="OrderSearOrderUnitPriceMax" class="modal-labels">OrderUnitPriceMax</label>
+            <input type="text" class="input-textbox" id="OrderSearOrderUnitPriceMax">
+          </div>
+          <div>
+            <label for="OrderSearOrderUnitPriceMin" class="modal-labels">OrderUnitPriceMin</label>
+            <input type="text" class="input-textbox" id="OrderSearOrderUnitPriceMin">
+          </div>
+          <div>
+            <label for="OrderSearDriver" class="modal-labels">Driver</label>
+            <input type="text" class="input-textbox" id="OrderSearDriver">
+          </div>
+          <div>
+            <label for="OrderSearDateOfOrderMax" class="modal-labels">DateOfOrderMax</label>
+            <input type="text" class="input-textbox" id="OrderSearDateOfOrderMax">
+          </div>
+          <div>
+            <label for="OrderSearDateOfOrderMin" class="modal-labels">DateOfOrderMin</label>
+            <input type="text" class="input-textbox" id="OrderSearDateOfOrderMin">
+          </div>
+          <div>
+            <label for="OrderSearArriveDeadlineMax" class="modal-labels">ArriveDeadlineMax</label>
+            <input type="text" class="input-textbox" id="OrderSearArriveDeadlineMax">
+          </div>
+          <div>
+            <label for="OrderSearArriveDeadlineMin" class="modal-labels">ArriveDeadlineMin</label>
+            <input type="text" class="input-textbox" id="OrderSearArriveDeadlineMin">
+          </div>
+          <div>
+            <label for="OrderSearDateArrivedMax" class="modal-labels">DateArrivedMax</label>
+            <input type="text" class="input-textbox" id="OrderSearDateArrivedMax">
+          </div>
+          <div>
+            <label for="OrderSearDateArrivedMin" class="modal-labels">DateArrivedMin</label>
+            <input type="text" class="input-textbox" id="OrderSearDateArrivedMin">
+          </div>
+
+
+          <button id="OrderSearBtn" onclick="onSearchOrder(event)" type="button" class="btn btn-secondary">Search Orders</button>
+
+
+        </form>
+      </ul>
+
+
+
+
+    </div>
+    <main class="bmd-layout-content">
+      <div id="orderPage" class="container page-container">
+        <div id="addOrder">
+          <h1 class="titleInLine">Order</h1>
+          <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addOrderDialog">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td class="ID">ID</td>
+              <td class="ProductID">ProductID</td>
+              <td class="Product">Product</td>
+              <td class="Quantity">Quantity</td>
+              <td class="OrderUnitPrice">OrderUnitPrice</td>
+              <td class="DateOfOrder">DateOfOrder</td>
+              <td class="Driver">Driver</td>
+              <td class="SellTo">SellTo</td>
+              <td class="ShippingAddress">ShippingAddress</td>
+              <td class="ArriveDeadline">ArriveDeadline</td>
+              <td class="DateArrived">DateArrived</td>
+            </tr>
+          </thead>
+          <tbody id="Order-table-body-1">
+
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <div class="modal fade" id="addOrderDialog" tabindex="-1" role="dialog" aria-labelledby="Add Order dialog"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add an Order</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group bmd-form-group">
+              <label for="inputAddProductID">ProductID</label>
+              <input type="text" class="form-control" id="inputAddProductID" placeholder="ProductID">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddQuantity">Quantity</label>
+              <input type="text" class="form-control" id="inputAddQuantity" placeholder="Quantity">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddOrderUnitPrice">OrderUnitPrice</label>
+              <input type="text" class="form-control" id="inputAddOrderUnitPrice" placeholder="OrderUnitPrice">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddDateOfOrder">DateOfOrder</label>
+              <input type="text" class="form-control" id="inputAddDateOfOrder" placeholder="DateOfOrder">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddDriver">Driver</label>
+              <input type="text" class="form-control" id="inputAddDriver" placeholder="Driver">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddSellTo">SellTo</label>
+              <input type="text" class="form-control" id="inputAddSellTo" placeholder="SellTo">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddAddress-Province">Address-Province</label>
+              <input type="text" class="form-control" id="inputAddAddress-Province" placeholder="Province">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddAddress-City">Address-City</label>
+              <input type="text" class="form-control" id="inputAddAddress-City" placeholder="City">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddAddress-District">Address-District</label>
+              <input type="text" class="form-control" id="inputAddAddress-District" placeholder="District">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddAddress-Street">Address-Street</label>
+              <input type="text" class="form-control" id="inputAddAddress-Street" placeholder="Street">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddAddress-ZipCode">Address-ZipCode</label>
+              <input type="text" class="form-control" id="inputAddAddress-ZipCode" placeholder="ZipCode">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddArriveDeadline">ArriveDeadline</label>
+              <input type="text" class="form-control" id="inputAddArriveDeadline" placeholder="ArriveDeadline"
+                required>
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddDateArrived">DateArrived</label>
+              <input type="text" class="form-control" id="inputAddDateArrived" placeholder="DateArrived">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id="submitAddOrder" onclick="onInsert(event)" type="submit" class="btn btn-primary"
+              data-dismiss="modal">CREATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editOrderDialog" tabindex="-1" role="dialog" aria-labelledby="Edit Order dialog"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit this Order's information</h5>
+          </div>
+          <div class="modal-body">
+
+            <input class="ID" name="ID" id="ID" value="" type="hidden"/>
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateProductID">ProductID</label>
+              <input type="text" class="form-control" id="inputUpdateProductID" placeholder="ProductID">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateQuantity">Quantity</label>
+              <input type="text" class="form-control" id="inputUpdateQuantity" placeholder="Quantity">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateOrderUnitPrice">OrderUnitPrice</label>
+              <input type="text" class="form-control" id="inputUpdateOrderUnitPrice" placeholder="OrderUnitPrice">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateDateOfOrder">DateOfOrder</label>
+              <input type="text" class="form-control" id="inputUpdateDateOfOrder" placeholder="DateOfOrder">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateDriver">Driver</label>
+              <input type="text" class="form-control" id="inputUpdateDriver" placeholder="Driver">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateSellTo">SellTo</label>
+              <input type="text" class="form-control" id="inputUpdateSellTo" placeholder="SellTo">
+            </div>
+
+            <input class="AddressID" name="AddressID" id="AddressID" value="" type="hidden"/>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateAddress-province">Address-Province</label>
+              <input type="text" class="form-control" id="inputUpdateAddress-Province" placeholder="Province">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateAddress-City">Address-City</label>
+              <input type="text" class="form-control" id="inputUpdateAddress-City" placeholder="City">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateAddress-District">Address-District</label>
+              <input type="text" class="form-control" id="inputUpdateAddress-District" placeholder="District">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateAddress-Street">Address-Street</label>
+              <input type="text" class="form-control" id="inputUpdateAddress-Street" placeholder="Street">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateAddress-ZipCode">Address-ZipCode</label>
+              <input type="text" class="form-control" id="inputUpdateAddress-ZipCode" placeholder="ZipCode">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateArriveDeadline">ArriveDeadline</label>
+              <input type="text" class="form-control" id="inputUpdateArriveDeadline" placeholder="ArriveDeadline"
+                required>
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateDateArrived">DateArrived</label>
+              <input type="text" class="form-control" id="inputUpdateDateArrived" placeholder="DateArrived">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id="submitEditOrder" type="submit" class="btn btn-primary" data-dismiss="modal"
+              onclick="onUpdateOrder(event)">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>
+    $("body").bootstrapMaterialDesign();
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="scripts/BE_Fetch_Order_Main.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/BE_Fetch_Order_Main.js"></script>
+</body>
+
+</html>

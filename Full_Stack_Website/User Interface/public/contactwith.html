@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="styles/main.css">
+  <title>ContactWith</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Material Store
+        </a>
+    </header>
+
+
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+        <!-- Put in actual filters -->
+        <p><input type="checkbox" name="Company" checked="checked" />Company</p>
+        <p><input type="checkbox" name="Representative" checked="checked" />Representative</p>
+        <p><input type="checkbox" name="RepNumber" checked="checked" />RepNumber</p>
+        <p><input type="checkbox" name="Contacter" checked="checked" />Contacter</p>
+        <p><input type="checkbox" name="ContacterNumber" checked="checked" />ContacterNumber</p>
+        <p><input type="checkbox" name="LevelOfInterest" checked="checked" />LevelOfInterest</p>
+        <hr>
+
+        <form onsubmit="return onSearchContactWith(event)" method="Get">
+          <div>
+            <label for="contactWithSearContacter" class="modal-labels">Contacter</label>
+            <input type="text" class="input-textbox" id="contactWithSearContacter">
+          </div>
+          <div>
+            <label for="contactWithSearCompany" class="modal-labels">Company</label>
+            <input type="text" class="input-textbox" id="contactWithSearCompany">
+          </div>
+          <div>
+            <label for="contactWithSearCompany" class="modal-labels">LevelOfInterest</label>
+            <input type="text" class="input-textbox" id="contactWithSearLevelOfInterest">
+          </div>
+
+          <button id="contactWithSearBtn" type="submit" class="btn btn-secondary">Search ContactWith</button>
+        </form>
+      </ul>
+
+
+    </div>
+    <main class="bmd-layout-content">
+      <div id="contactWithPage" class="container page-container">
+        <div id="addContactWith">
+          <h1 class="titleInLine">Contact</h1>
+          <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal"
+            data-target="#addContactWithDialog">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="Company" scope="col">Company</th>
+              <th class="Representative" scope="col">Representative</th>
+              <th class="RepNumber" scope="col">RepNumber</th>
+              <th class="Contacter" scope="col">Contacter</th>
+              <th class="ContacterNumber" scope="col">ContacterNumber</th>
+              <th class="LevelOfInterest" scope="col">LevelOfInterest</th>
+            </tr>
+          </thead>
+          <tbody id="contactWith-table-body-1">
+
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <div class="modal fade" id="addContactWithDialog" tabindex="-1" role="dialog"
+      aria-labelledby="Add ContactWith dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a contactWith</h5>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddContacter">Contacter: </label>
+              <input type="text" class="form-control" id="inputAddContacter" placeholder="Contacter" required>
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddCompany">Company: </label>
+              <input type="text" class="form-control" id="inputAddCompany" placeholder="Company" required>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id="submitAddContactWith" onclick="onInsert(event)" type="submit" class="btn btn-primary"
+              data-dismiss="modal">CREATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>
+    $("body").bootstrapMaterialDesign();
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="scripts/BE_Fetch_ContactWith_Main.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/BE_Fetch_ContactWith_Main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+body {
+    background: white;
+}
+
+.navbar {
+    background-color: orange;
+    color: white;
+    flex: fill;
+}
+
+.navbar, .navbar>.container, .navbar>.container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: space-between; */
+    justify-content: start;
+}
+
+#mainContentContainer{
+    margin-left:50px;
+    margin-right: 50px;
+}
+
+.list-group-item :first-child{
+    margin-right: 0.75rem;
+}
+
+.bmd-layout-drawer>.list-group .list-group-item{
+    background-color: orange;
+    color: white;
+}
+
+body{
+   text-align: center;    
+}
+
+.bmd-layout-content{
+    height: 100vh;
+}
+
+.bmd-layout-drawer>header{
+    background-color: darkgray;
+    color: white;
+}
+
+.bmd-layout-drawer>ul{
+    background-color: darkorange;
+}
+
+
+
+.page-container {
+    margin-top: 75px;
+}
+
+
+button.disabled {
+    pointer-events: none !important;
+}
+
+.addEmployee{
+    display: flex;
+}
+
+#fab{
+    left: 600px;
+    background:darkorange;
+    
+}
+
+
+
+.titleInLine{
+    display: inline-block;
+}
+
+table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+/* #employeePage {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0%;
+    Width:1800px !important;
+} */
+
+.list-group{
+    font-size: large;
+}

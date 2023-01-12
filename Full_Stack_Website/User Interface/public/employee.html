@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Employee</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Material Store
+        </a>
+    </header>
+   
+
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+        <!-- Put in actual filters -->
+        <p><input type="checkbox" name="SSN" checked="checked" /> SSN</p>
+        <p><input type="checkbox" name="Name" checked="checked" />Name</p>
+        <p><input type="checkbox" name="Address" checked="checked" /> Address</p>
+        <p><input type="checkbox" name="Position" checked="checked" /> Position</p>
+        <p><input type="checkbox" name="EmployedTime" checked="checked" /> Employed M/Y</p>
+        <p><input type="checkbox" name="BirthTime" checked="checked" />Birth M/Y</p>
+        <p><input type="checkbox" name="PhoneNumber" checked="checked" /> PhoneNumber</p>
+        <p><input type="checkbox" name="Salary" checked="checked" /> Salary</p>
+        <p><input type="checkbox" name="CreditCardNumber" checked="checked" /> CreditCardNumber</p>
+        <p><input type="checkbox" name="Manager" checked="checked" /> Manager</p>
+        <hr>
+        
+        <form onsubmit="return onSearchEmployee(event)" method="Get" >
+          <!-- <div> -->
+          <div>
+            <label for="empSearSSN" class="modal-labels">SSN</label>
+            <input type="text" class="input-textbox" id="empSearSSN">
+          </div>
+          <div>
+            <label for="empSearName" class="modal-labels">Name</label>
+            <input type="text" class="input-textbox" id="empSearName">
+          </div>
+          <div>
+            <label for="empSearProvince" class="modal-labels">Province</label>
+            <input type="text" class="input-textbox" id="empSearProvince">
+          </div>
+          <div>
+            <label for="empSearCity" class="modal-labels">City</label>
+            <input type="text" class="input-textbox" id="empSearCity">
+          </div>
+          <div>
+            <label for="empSearPosition" class="modal-labels">Position</label>
+            <input type="text" class="input-textbox" id="empSearPosition">
+          </div>
+          <div>
+            <label for="empSearEmployedYearMax" class="modal-labels">EmployedYearMax</label>
+            <input type="text" class="input-textbox" id="empSearEmployedYearMax">
+          </div>
+          <div>
+            <label for="empSearEmployedYearMin" class="modal-labels">EmployedYearMin</label>
+            <input type="text" class="input-textbox" id="empSearEmployedYearMin">
+          </div>
+          <div>
+            <label for="empSearBirthYearMax" class="modal-labels">BirthYearMax</label>
+            <input type="text" class="input-textbox" id="empSearBirthYearMax">
+          </div>
+          <div>
+            <label for="empSearBirthYearMin" class="modal-labels">BirthYearMin</label>
+            <input type="text" class="input-textbox" id="empSearBirthYearMin">
+          </div>
+          <div>
+            <label for="empSearPhoneNumber" class="modal-labels">PhoneNumber</label>
+            <input type="text" class="input-textbox" id="empSearPhoneNumber">
+          </div>
+          <div>
+            <label for="empSearSalaryMax" class="modal-labels">SalaryMax</label>
+            <input type="text" class="input-textbox" id="empSearSalaryMax">
+          </div>
+          <div>
+            <label for="empSearSalaryMin" class="modal-labels">SalaryMin</label>
+            <input type="text" class="input-textbox" id="empSearSalaryMin">
+          </div>
+          <div>
+            <label for="empSearManager" class="modal-labels">Managed By</label>
+            <input type="text" class="input-textbox" id="empSearManager">
+          </div>
+        <!-- </div> -->
+        
+          <button id="empSearBtn" type="submit" class="btn btn-secondary">Search Employees</button>
+        
+
+        </form>
+      </ul>
+
+
+
+      
+    </div>
+    <main class="bmd-layout-content">
+    <div id="employeePage" class="container page-container">
+      <div id="addEmployee">
+        <h1 class="titleInLine">Employee</h1>
+        <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addEmployeeDialog">
+          <i class="material-icons">add</i>
+        </button>
+      </div>
+      
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class = "Name" scope="col">Name</th>
+              <th class = "Position" scope="col">Position</th>
+              <th class = "PhoneNumber" scope="col">PhoneNumber</th>
+              <th class = "SSN" scope="col">SSN</th>
+              <th class = "Address" scope="col">Address</th>
+
+              <th class = "EmployedTime" scope="col">Employed M/Y</th>
+              <th class = "BirthTime" scope="col">Birth M/Y</th>
+
+              <th class = "Salary" scope="col">Salary</th>
+              <th class = "CreditCardNumber" scope="col">CreditCardNumber</th>
+              <th class = "Manager" scope="col">Manager</th>
+            </tr>
+          </thead>
+          <tbody id="employee-table-body-1">
+     
+          </tbody>
+        </table>
+    </div>
+    </main>
+
+    <div class="modal fade" id="addEmployeeDialog" tabindex="-1" role="dialog" aria-labelledby="Add Employee dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add an employee</h5>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group bmd-form-group">
+              <label for="inputAddName">Name</label>
+              <input type="text" class="form-control" id="inputAddName" placeholder="Name" required>
+            </div>
+            
+              <div class="form-group bmd-form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                <label for="inputAddSSN" >SSN:</label>
+                <input type="text" class="form-control" id="inputAddSSN" placeholder="SSN" required>
+              </div>
+             
+              <div class="form-group bmd-form-group"> 
+                <label for="inputAddPosition" >Position</label>
+                <input type="text" class="form-control" id="inputAddPosition" placeholder="Position">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddPhoneNumber" >Phone Number</label>
+                <input type="text" class="form-control" id="inputAddPhoneNumber" placeholder="PhoneNumber" required>
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputAddSalary"  >Salary</label>
+                <input type="text" class="form-control" id="inputAddSalary" placeholder="Salary " required>
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddAddress-province" >Address-Province</label>
+                <input type="text" class="form-control" id="inputAddAddress-Province" placeholder="Province">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddAddress-City" >Address-City</label>
+                <input type="text" class="form-control" id="inputAddAddress-City" placeholder="City">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddAddress-District" >Address-District</label>
+                <input type="text" class="form-control" id="inputAddAddress-District" placeholder="District">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddAddress-Street" >Address-Street</label>
+                <input type="text" class="form-control" id="inputAddAddress-Street" placeholder="Street">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddAddress-ZipCode" >Address-ZipCode</label>
+                <input type="text" class="form-control" id="inputAddAddress-ZipCode" placeholder="ZipCode">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddEmployedYear" >Employed Year</label>
+                <input type="text" class="form-control" id="inputAddEmployedYear" placeholder="EmployedYear">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputAddEmployedMonth" >Employed Month</label>
+                <input type="text" class="form-control" id="inputAddEmployedMonth" placeholder="EmployedMonth">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputAddBirthYear" >Birth Year</label>
+                <input type="text" class="form-control" id="inputAddBirthYear" placeholder="BirthYear">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputAddBirthMonth" >Birth Month</label>
+                <input type="text" class="form-control" id="inputAddBirthMonth" placeholder="BirthMonth">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddCreditCardNumber" >Credit Card Number</label>
+                <input type="text" class="form-control" id="inputAddCreditCardNumber" placeholder="CreditCardNumber" required>
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddManager" >Manager</label>
+                <input type="text" class="form-control" id="inputAddManager" placeholder="Manager" required>
+              </div>
+
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitAddEmployee" onclick="onInsert(event)" type="submit" class="btn btn-primary" data-dismiss="modal">CREATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editEmployeeDialog" tabindex="-1" role="dialog" aria-labelledby="Edit employee dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit this employee's information</h5>
+          </div>
+          <div class="modal-body">
+            
+            <input class="ssn" name="ssn" id="ssn" value="" type="hidden"/>
+            <div class="form-group bmd-form-group">
+              <label for="inputUpdateName">Name</label>
+              <input type="text" class="form-control emp-up" id="inputUpdateName" placeholder="Name" required>
+            </div>
+            
+            <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+              <!-- <div class="form-group bmd-form-group"> 
+                <label for="inputUpdateSSN" >SSN:</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateSSN" placeholder="SSN" required>
+              </div> -->
+             
+              <div class="form-group bmd-form-group"> 
+                <label for="inputUpdatePosition" >Position</label>
+                <input type="text" class="form-control emp-up" id="inputUpdatePosition" placeholder="Position">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdatePhoneNumber" >Phone Number</label>
+                <input type="text" class="form-control emp-up" id="inputUpdatePhoneNumber" placeholder="PhoneNumber" required>
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputUpdateSalary"  >Salary</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateSalary" placeholder="Salary " required>
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateAddress-province" >Address-Province</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateAddress-Province" placeholder="Province">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateAddress-City" >Address-City</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateAddress-City" placeholder="City">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateAddress-District" >Address-District</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateAddress-District" placeholder="District">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateAddress-Street" >Address-Street</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateAddress-Street" placeholder="Street">
+              </div>
+
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateAddress-ZipCode" >Address-ZipCode</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateAddress-ZipCode" placeholder="ZipCode">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateEmployedYear" >Employed Year</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateEmployedYear" placeholder="EmployedYear">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputUpdateEmployedMonth" >Employed Month</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateEmployedMonth" placeholder="EmployedMonth">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputUpdateBirthYear" >Birth Year</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateBirthYear" placeholder="BirthYear">
+              </div>
+
+              <div class="form-group bmd-form-group"> 
+                <label for="inputUpdateBirthMonth" >Birth Month</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateBirthMonth" placeholder="BirthMonth">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateCreditCardNumber" >Credit Card Number</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateCreditCardNumber" placeholder="CreditCardNumber" required>
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputUpdateManager" >Manager</label>
+                <input type="text" class="form-control emp-up" id="inputUpdateManager" placeholder="Manager" required>
+              </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitEditEmployee"  type="submit" class="btn btn-primary" data-dismiss="modal"  onclick="onUpdateEmployee(event)">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+  </div>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>
+    $("body").bootstrapMaterialDesign();
+  </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="scripts/BE_Fetch_Employee_Main.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/BE_Fetch_Employee_Main.js"></script>
+</body>
+
+</html>

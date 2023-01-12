@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Product</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Material Store
+        </a>
+    </header>
+   
+
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+        <p><input type="checkbox" name="NameProduct" checked="checked" />Product</p>
+        <p><input type="checkbox" name="BuyingCost" checked="checked" /> BuyingCost</p>
+        <p><input type="checkbox" name="SellPrice" checked="checked" /> SellPrice</p>
+        <p><input type="checkbox" name="Description" checked="checked" /> Description</p>
+        <p><input type="checkbox" name="StockQuantity" checked="checked" /> StockQuantity</p>
+        <p><input type="checkbox" name="CompanyProduct" checked="checked" />Company</p>
+        <hr>
+        <form onsubmit="return onSearchProduct(event)" method="Get" >
+          <!-- <div> -->
+          <div>
+            <label for="productName" class="modal-labels">Product</label>
+            <input type="text" class="input-textbox" id="productName">
+          </div>
+          <div>
+            <label for="buyingCostProduct" class="modal-labels">BuyingCost</label>
+            <input type="text" class="input-textbox" id="buyingCostProduct">
+          </div>
+          <div>
+            <label for="sellPriceProduct" class="modal-labels">SellPrice</label>
+            <input type="text" class="input-textbox" id="sellPriceProduct">
+          </div>
+          <div>
+            <label for="stockQuantity" class="modal-labels">StockQuantity</label>
+            <input type="text" class="input-textbox" id="stockQuantity">
+          </div>
+
+          <div>
+            <label for="companyProduct" class="modal-labels">Company</label>
+            <input type="text" class="input-textbox" id="companyProduct">
+          </div>
+
+        <!-- </div> -->
+        
+          <button id="productSearBtn" type="submit" class="btn btn-secondary">Search Product</button>
+        
+
+        </form>
+
+      </ul>
+    </div>
+    <main class="bmd-layout-content">
+    <div id="productPage" class="container page-container">
+      
+      <div>
+        <h1 class="titleInLine">Product</h1>
+        <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addProductDialog">
+          <i class="material-icons">add</i>
+        </button>
+      </div>
+     
+      <table class="table table-striped justify-content-center">
+        <thead>
+          <tr>
+            <th class="NameProduct" scope="col">Product</th>
+            <th class="BuyingCost" scope="col">BuyingCost</th>
+            <th class="SellPrice" scope="col">SellPrice</th>
+            <th class="Description" scope="col">Description</th>
+            <th class="StockQuantity" >StockQuantity</th>
+            <th class="CompanyProduct" >Company</th>
+          </tr>
+        </thead>
+        <tbody id="product-table-body-1">
+   
+        </tbody>
+      </table>
+    </div>
+    </main>
+
+    <div class="modal fade" id="addProductDialog" tabindex="-1" role="dialog" aria-labelledby="Add Product dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add a Product</h5>
+          </div>
+          <div class="modal-body">
+            
+              <div class="form-group bmd-form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                <label for="inputAddProduct" >Product</label>
+                <input type="text" class="form-control" id="inputAddProduct" placeholder="Product" required>
+              </div>
+             
+            
+              <div class="form-group bmd-form-group">
+                <label for="inputAddBuyingCost" >BuyingCost</label>
+                <input type="text" class="form-control" id="inputAddBuyingCost" placeholder="BuyingCost">
+              </div>
+              
+              <div class="form-group bmd-form-group">
+                <label for="inputAddSellPrice" >SellPrice</label>
+                <input type="text" class="form-control" id="inputAddSellPrice" placeholder="SellPrice">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddDescription" >Description</label>
+                <input type="text" class="form-control" id="inputAddDescription" placeholder="Description">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddStockQuantity" >StockQuantity</label>
+                <input type="text" class="form-control" id="inputAddStockQuantity" placeholder="StockQuantity">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddCompanyProduct" >Company</label>
+                <input type="text" class="form-control" id="inputAddCompanyProduct" placeholder="Company">
+              </div>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitAddCompany" onclick="onInsertProduct(event)" type="submit" class="btn btn-primary" data-dismiss="modal">CREATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editProductDialog" tabindex="-1" role="dialog" aria-labelledby="Edit Product dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit a Product</h5>
+          </div>
+          <div class="modal-body">
+            
+            <div class="form-group bmd-form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+              <label for="inputEditProduct" >Product</label>
+              <input type="text" class="form-control" id="inputEditProduct" placeholder="Product" required>
+            </div>
+           
+          
+            <div class="form-group bmd-form-group">
+              <label for="inputEditBuyingCost" >BuyingCost</label>
+              <input type="text" class="form-control" id="inputEditBuyingCost" placeholder="BuyingCost">
+            </div>
+            
+            <div class="form-group bmd-form-group">
+              <label for="inputEditSellPrice" >SellPrice</label>
+              <input type="text" class="form-control" id="inputEditSellPrice" placeholder="SellPrice">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputEditDescription" >Description</label>
+              <input type="text" class="form-control" id="inputEditDescription" placeholder="Description">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputEditStockQuantity" >StockQuantity</label>
+              <input type="text" class="form-control" id="inputEditStockQuantity" placeholder="StockQuantity">
+            </div>
+
+            <div class="form-group bmd-form-group">
+              <label for="inputEditCompanyProduct" >Company</label>
+              <input type="text" class="form-control" id="inputEditCompanyProduct" placeholder="Company">
+            </div>
+         
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitEditProduct"  type="submit" class="btn btn-primary" data-dismiss="modal"  onclick="onUpdateProduct(event)">SAVE</button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="scripts/BE_Fetch_Product_Main.js"></script>
+</body>
+
+</html>

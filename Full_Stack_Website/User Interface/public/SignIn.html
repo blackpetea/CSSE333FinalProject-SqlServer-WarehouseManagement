@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <div id="LoginPage">
+    <h1>Enter Login Information</h1>
+    <div class="row justify-content-center form-group">
+      <div class="col-sm-2">
+        <h6>Username: </h6>
+        </col-sm-2>
+      </div>
+      <div class=" col-sm-9 form-group">
+        <input type="text" class="form-control" id="UserNameBox" placeholder="">
+      </div>
+      <div class="col-sm-2">
+        <h6>Password: </h6>
+        </col-sm-2>
+      </div>
+      <div class="col-sm-9 form-group alpacaTextLine">
+        <input type="text" class="form-control" id="UserPasswordBox" placeholder="">
+      </div>
+      <button type="button" id="submitButtonE" class="col-sm-4 btn submitButton">Submit</button>
+      <button type="button" id="signUpButton" class="col-sm-4 btn submitButton" data-toggle="modal" data-target="#registerDialog">sign up</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="modal fade" id="registerDialog" tabindex="-1" role="dialog" aria-labelledby="Register user dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group bmd-form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" class="form-control" id="registerUsername" required>
+          </div>
+
+          <div class="form-group bmd-form-group">
+            <label for="inputPassword">Password</label>
+            <input type="text" class="form-control" id="registerPassword" required>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+          <button id="registerUser" type="submit" class="btn btn-primary"
+            data-dismiss="modal">REGISTER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>
+    $("body").bootstrapMaterialDesign();
+  </script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

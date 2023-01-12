@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Company</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Material Store
+        </a>
+    </header>
+   
+
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+        <p><input type="checkbox" name="NameCompany" checked="checked" />Name</p>
+        <p><input type="checkbox" name="Field" checked="checked" /> Field</p>
+        <p><input type="checkbox" name="RepName" checked="checked" /> RepName</p>
+        <p><input type="checkbox" name="RepNumber" checked="checked" /> RepNumber</p>
+        <p><input type="checkbox" name="ProvinceCompany" checked="checked" />Province</p>
+        <p><input type="checkbox" name="CityCompany" checked="checked" />City</p>
+        <p><input type="checkbox" name="DistrictCompany" checked="checked" />District</p>
+        <p><input type="checkbox" name="RegDate" checked="checked" /> RegDate</p>
+        <p><input type="checkbox" name="Type" checked="checked" /> Type</p>
+        <p><input type="checkbox" name="LevelOfInterest" checked="checked" /> LevelOfInterest</p>
+        <p><input type="checkbox" name="Notes1" checked="checked" /> Notes1</p>
+        <p><input type="checkbox" name="Notes2" checked="checked" /> Notes2</p>
+        <p><input type="checkbox" name="Notes3" checked="checked" /> Notes3</p>
+        
+        <form onsubmit="return onSearchCompany(event)" method="Get" >
+          <!-- <div> -->
+          <div>
+            <label for="compName" class="modal-labels">Name</label>
+            <input type="text" class="input-textbox" id="compName">
+          </div>
+          <div>
+            <label for="compField" class="modal-labels">Field</label>
+            <input type="text" class="input-textbox" id="compField">
+          </div>
+          <div>
+            <label for="compRepName" class="modal-labels">RepName</label>
+            <input type="text" class="input-textbox" id="compRepName">
+          </div>
+          <div>
+            <label for="compRepNumber" class="modal-labels">RepNumber</label>
+            <input type="text" class="input-textbox" id="compRepNumber">
+          </div>
+          <div>
+            <label for="compProvince" class="modal-labels">Province</label>
+            <input type="text" class="input-textbox" id="compProvince">
+          </div>
+
+          <div>
+            <label for="compCity" class="modal-labels">City</label>
+            <input type="text" class="input-textbox" id="compCity">
+          </div>
+
+          <div>
+            <label for="compDistrict" class="modal-labels">District</label>
+            <input type="text" class="input-textbox" id="compDistrict">
+          </div>
+
+          <div>
+            <label for="compRegDateMax" class="modal-labels">RegDate Max</label>
+            <input type="text" class="input-textbox" id="compRegDateMax">
+          </div>
+          <div>
+            <label for="compRegDateMin" class="modal-labels">RegDate Min</label>
+            <input type="text" class="input-textbox" id="compRegDateMin">
+          </div>
+          <div>
+            <label for="compType" class="modal-labels">Type</label>
+            <input type="text" class="input-textbox" id="compType">
+          </div>
+          <div>
+            <label for="compLOIMax" class="modal-labels">LevelOfInterest Max</label>
+            <input type="text" class="input-textbox" id="compLOIMax">
+          </div>
+          <div>
+            <label for="compLOIMin" class="modal-labels">LevelOfInterest Min</label>
+            <input type="text" class="input-textbox" id="compLOIMin">
+          </div>
+        <!-- </div> -->
+        
+          <button id="compSearBtn" type="submit" class="btn btn-secondary">Search Company</button>
+        
+
+        </form>
+
+      </ul>
+    </div>
+    <main class="bmd-layout-content">
+    <div id="companyPage" class="container page-container">
+      
+      <div>
+        <h1 class="titleInLine">Company</h1>
+        <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addCompanyDialog">
+          <i class="material-icons">add</i>
+        </button>
+      </div>
+     
+      <table class="table table-striped justify-content-center">
+        <thead>
+          <tr>
+            <th class="NameCompany" scope="col">Name</th>
+            <th class="Field" scope="col">Field</th>
+            <th class="RepName" scope="col">RepName</th>
+            <th class="RepNumber" scope="col">RepNumber</th>
+            <th class="ProvinceCompany" >Province</th>
+            <th class="CityCompany" >City</th>
+            <th class="DistrictCompany" >District</th>
+            <th class="RegDate" scope="col">RegDate</th>
+            <th class="Type" scope="col">Type</th>
+            <th class="LevelOfInterest" scope="col">LevelOfInterest</th>
+            <th class="Notes1" scope="col">Notes1</th>
+            <th class="Notes2" scope="col">Notes2</th>
+            <th class="Notes3" scope="col">Notes3</th>
+          </tr>
+        </thead>
+        <tbody id="company-table-body-1">
+   
+        </tbody>
+      </table>
+    </div>
+    </main>
+
+    <div class="modal fade" id="addCompanyDialog" tabindex="-1" role="dialog" aria-labelledby="Add Company dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add a Company</h5>
+          </div>
+          <div class="modal-body">
+            
+              <div class="form-group bmd-form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                <label for="inputAddNameCompany" >Name</label>
+                <input type="text" class="form-control" id="inputAddNameCompany" placeholder="Name" required>
+              </div>
+             
+            
+              <div class="form-group bmd-form-group">
+                <label for="inputAddFieldCompany" >Field</label>
+                <input type="text" class="form-control" id="inputAddFieldCompany" placeholder="Field">
+              </div>
+              
+              <div class="form-group bmd-form-group">
+                <label for="inputAddRepNameCompany" >RepName</label>
+                <input type="text" class="form-control" id="inputAddRepNameCompany" placeholder="RepName">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddRepNumberCompany" >RepNumber</label>
+                <input type="text" class="form-control" id="inputAddRepNumberCompany" placeholder="RepNumber">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddProvince" >Province</label>
+                <input type="text" class="form-control" id="inputAddProvinceCompany" placeholder="Province">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddCity" >City</label>
+                <input type="text" class="form-control" id="inputAddCityCompany" placeholder="City">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddDistrict" >District</label>
+                <input type="text" class="form-control" id="inputAddDistrictCompany" placeholder="District">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddRegDateCompany" >RegDate</label>
+                <input type="text" class="form-control" id="inputAddRegDateCompany" placeholder="RegDate">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputAddTypeCompany" >Type</label>
+                <input type="text" class="form-control" id="inputAddTypeCompany" placeholder="Type">
+              </div> 
+              
+              <div class="form-group bmd-form-group">
+                <label for="inputAddLevelsOfInterestCompany" >LevelOfInterest</label>
+                <input type="text" class="form-control" id="inputAddLevelsOfInterestCompany" placeholder="LevelOfInterest">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputAddNotes1Company" >Notes1</label>
+                <input type="text" class="form-control" id="inputAddNotes1Company" placeholder="Notes1">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputAddNotes2Company" >Notes2</label>
+                <input type="text" class="form-control" id="inputAddNotes2Company" placeholder="Notes2">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputAddNotes3Company" >Notes3</label>
+                <input type="text" class="form-control" id="inputAddNotes3Company" placeholder="Notes3">
+              </div>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitAddCompany" onclick="onInsertCompany(event)" type="submit" class="btn btn-primary" data-dismiss="modal">CREATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editCompanyDialog" tabindex="-1" role="dialog" aria-labelledby="Edit Company dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit a Company</h5>
+          </div>
+          <div class="modal-body">
+            
+              <div class="form-group bmd-form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                <label for="inputNameCompany" >Name</label>
+                <input type="text" class="form-control" id="inputNameCompany" placeholder="Name" required>
+              </div>
+             
+            
+              <div class="form-group bmd-form-group">
+                <label for="inputFieldCompany" >Field</label>
+                <input type="text" class="form-control" id="inputFieldCompany" placeholder="Field">
+              </div>
+              
+              <div class="form-group bmd-form-group">
+                <label for="inputRepNameCompany" >RepName</label>
+                <input type="text" class="form-control" id="inputRepNameCompany" placeholder="RepName">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputRepNumberCompany" >RepNumber</label>
+                <input type="text" class="form-control" id="inputRepNumberCompany" placeholder="RepNumber">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputEditProvince" >Province</label>
+                <input type="text" class="form-control" id="inputEditProvince" placeholder="Province">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputEditCity" >City</label>
+                <input type="text" class="form-control" id="inputEditCity" placeholder="City">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputEditDistrict" >District</label>
+                <input type="text" class="form-control" id="inputEditDistrict" placeholder="District">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputRegDateCompany" >RegDate</label>
+                <input type="text" class="form-control" id="inputRegDateCompany" placeholder="RegDate">
+              </div>
+
+              <div class="form-group bmd-form-group">
+                <label for="inputTypeCompany" >Type</label>
+                <input type="text" class="form-control" id="inputTypeCompany" placeholder="Type">
+              </div> 
+              
+
+              <div class="form-group bmd-form-group">
+                <label for="inputLevelsOfInterestCompany" >LevelOfInterest</label>
+                <input type="text" class="form-control" id="inputLevelsOfInterestCompany" placeholder="LevelOfInterest">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputNotes1Company" >Notes1</label>
+                <input type="text" class="form-control" id="inputNotes1Company" placeholder="Notes1">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputNotes2Company" >Notes2</label>
+                <input type="text" class="form-control" id="inputNotes2Company" placeholder="Notes2">
+              </div>
+              <div class="form-group bmd-form-group">
+                <label for="inputNotes3Company" >Notes3</label>
+                <input type="text" class="form-control" id="inputNotes3Company" placeholder="Notes3">
+              </div>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+            <button id = "submitEditCompany"  type="submit" class="btn btn-primary" data-dismiss="modal"  onclick="onUpdateCompany(event)">SAVE</button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="scripts/BE_Fetch_Company_Main.js"></script>
+</body>
+
+</html>

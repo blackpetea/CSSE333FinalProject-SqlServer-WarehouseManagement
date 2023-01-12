@@ -1,0 +1,18 @@
+CompanyRepName,Address,OrderUnitPrice,Quantity,Transportation,OrderItem_Name,OrderItem_Color,OrderItem_Length(m),OrderItem_Weight(Ton) ,OrderItem_Notes,Driver,ArriveDeadline,DateArrived,DateOfOrder
+ZhuChongBa,"HuNan,ChangSha,Xiyi,HuaiHua8Lu,42350",22.3,400,Train,DaBiDou,Blue,3,2.5,fragile,WangYang,3/25/2022,3/20/2022,3/4/2022
+ZhuChongBa,"HuNan,ChangSha,Xiyi,HuaiHua8Lu,42350",844.25,240,Car/Truck,ChiFan,Green,2.5,1.8,easy broken,YangYi,2/3/2022,1/15/2022,1/5/2022
+ZhouEnLai,"GuangDong,ShenZhen,BuLaLa,JiuJie,62452",2089,102,Plane,SaiErDa,Brown,2.3,25,need to wrap nicely,XuGou,2/15/2022,2/8/2022,2/3/2022
+SunZhongShan,"FuJian,XiaMen,GaDong,XiAnBaJie,82345",218,255,Truck,DuMeng,Yellow,6.6,20,fast deliver,XuGou,2/28/2022,2/28/2022,2/25/2022
+ZhouXuanYu,"HuBei,YiChang,HuDong,QinShanJieDao,72634",300.5,980,Train,QiHaFen,Pink,800,6.7,need to place in large box,WangYang,1/18/2022,1/10/2022,1/5/2022
+YeSu,"GuangXi,ZhenZhong,XiSiQu,AnHuaBei2Lu,63154",4599,290,Truck,DaBiaoKe,Gray,23.6,3.3,,XuGou,4/13/2022,4/11/2022,3/25/2022
+SunZhongShan,"HeNan,ZhengZhou,LianHuaQu,ZhuHuLu,05159",120.7,500,Train,DaBiDou,Pink,12.3,12,deliver on time,YangYi,4/13/2022,4/13/2022,4/9/2022
+WangChong,"ZheJiang,FeiShui,GaGaQu,ZiLiaoLu,04165",120,189,Train,DaBiaoKe,Blue,12.4,2.5,,YangYi,2/28/2022,2/28/2022,2/25/2022
+PeiQiGongZhu,"ShanDong,GanSu,ZhengZhengQu,HuJianLu,84987",22.3,100,Truck,ChiFan,Red,3,1.8,deliver on time,XuGou,2/3/2022,1/15/2022,1/5/2022
+PeiQiGongZhu,"XiZang,QiQiHaEr,BaZhong,SanXiaLu,10657",844.25,300,Train,SaiErDa,Yellow,2.5,25,deliver on time,XuGou,2/15/2022,2/8/2022,2/3/2022
+HuBaYi,"TaiWan,TaiBei,SiHuQu,GanXiaLu,73894",2089,300,Train,ChuanShanJia,Orange,2.3,20,deliver on time,XuGou,2/28/2022,2/28/2022,2/25/2022
+ZhouDongYu,"GuangDong,HuiZhou,ZhuTouQu,NiuDu1Lu,50654",218,340,Bus,ChuanShanJia,Brown,6.6,6.7,deliver on time,XuGou,1/18/2022,1/10/2022,1/5/2022
+HuBaYi,"GuangDong,ShanTou,ChaoShanQu,BaLu,15984",300.5,209,Train,YouQi,Yellow,800,3.3,deliver on time,XuGou,4/13/2022,4/11/2022,3/25/2022
+WangErMaZi,"NeiMengGu,DaCaoYuan,HuQu,QiErLu,89195",4599,103,Train,HuaLi,Green,23.6,12,deliver on time,XuGou,4/13/2022,4/13/2022,4/9/2022
+XiangQianLi,"ShanDong,DaLian,QiSanQu,WuGong5Lu,59572",120.7,130,Car,ChiFan,Pink,12.3,11.0,deliver on time,WangYang,2/28/2022,2/28/2022,2/25/2022
+LiuDaChui,"LiaoNing,DaMaHou,TianQu,WuHouLu,19805",120,390,Plane,HunNingTu,Broze,12.4,28.0,deliver on time,WangYang,1/12/2022,1/12/2022,1/11/2022
+WangChong,"GuangXi,NanNing,YiTianQu,SanHouLu,89749",120,281,Plane,HunNingTu,Gold,11.6,47.2,deliver on time,WangYang,2/3/2022,2/3/2022,1/2/2022

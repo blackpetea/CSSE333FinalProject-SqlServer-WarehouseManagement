@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "md5-node": "^1.0.1",
+    "mssql": "^6.4.1",
+    "uuid": "^8.3.2"
+  }
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Material Store</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand text-center" href="#">Material Store</a>
+        <button class="navbar-toggler" type="button" id="lr1" data-toggle="dropdown">
+          <i class="material-icons">account_circle</i>
+        </button>
+        <div class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="lr1">
+          <button id="signOutButton" class="dropdown-item justify-content-center" type="button">Sign Out</button>
+        </div>
+    </header>
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <div class="navbar navbar-dark justify-content-center">
+        <a class="navbar-brand">Apply Filters</a>
+      </div>
+      <ul class="list-group">
+     
+
+        <form onsubmit="return onSearchEmployee(event)" method="Get" >
+        <div id="productGroupFilter">
+          <a id="productEntityName" class="list-group-item"><i class="material-icons">precision_manufacturing</i>Product</a>
+          <div class="form-check list-group-item attributeFilter product-attribute"
+            style="display: none; background-color: #ffdb82; text-align: left;">
+            <input class="form-check-input" type="checkbox" value="" id="productProductIDFilter" checked>
+            <label class="form-check-label" for="productProductIDFilter" style="color: black">Product ID</label>
+
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productCategoryNameFilter" checked>
+            <label class="form-check-label" for="productCategoryNameFilter" style="color: black">Category Name</label>
+
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productNameFilter" checked>
+            <label class="form-check-label" for="productNameFilter" style="color: black">Name</label>
+            <div>
+              <label for="productNameEqualTo" class="modal-labels">Type the name of product to look for:</label>
+              <input type="text" class="input-textbox" id="productNameEqualTo">
+            </div>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productAmountInStockFilter" checked>
+            <label class="form-check-label" for="productAmountInStockFilter" style="color: black">Amount in Stock</label>
+            <div>
+              <label for="ProductAmountGreaterThan" class="modal-labels">Min:</label>
+              <input type="text" class="input-textbox" id="ProductAmountGreaterThan">
+              <label for="ProductAmountSmallerThan" class="modal-labels">Max:</label>
+              <input type="text" class="input-textbox" id="ProductAmountSmallerThan">
+            </div>            
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productUnitCostFilter" checked>
+            <label class="form-check-label" for="productUnitCostFilter" style="color: black">Unit Cost</label>
+            <div>
+              <label for="ProductUnitCostGreaterThan" class="modal-labels">Min:</label>
+              <input type="text" class="input-textbox" id="ProductUnitCostGreaterThan">
+              <label for="ProductUnitCostSmallerThan" class="modal-labels">Max:</label>
+              <input type="text" class="input-textbox" id="ProductUnitCostSmallerThan">
+            </div>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productSellingPriceFilter" checked>
+            <label class="form-check-label" for="productSellingPriceFilter" style="color: black">Selling Price</label>
+            <div>
+              <label for="ProductSellingPriceGreaterThan" class="modal-labels">Min:</label>
+              <input type="text" class="input-textbox" id="ProductSellingPriceGreaterThan">
+              <label for="ProductSellingPriceSmallerThan" class="modal-labels">Max:</label>
+              <input type="text" class="input-textbox" id="ProductSellingPriceSmallerThan">
+            </div>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="productManufacturerIDFilter" checked>
+            <label class="form-check-label" for="productManufacturerIDFilter" style="color: black">Manufacturer ID</label>
+            <div>
+            </div>
+            <button id="applyProductFiltersButton" type="submit" class="btn btn-secondary">Apply Product Filters</button>
+          </div>
+        </div>
+      </form>
+        <div id="orderGroupFilter">
+          <a id="orderEntityName" class="list-group-item"><i class="material-icons">receipt_long</i>Order</a>
+          <div class="form-check list-group-item attributeFilter order-attribute"
+            style="display: none; background-color: #ffdb82; text-align: left;">
+            <input class="form-check-input" type="checkbox" value="" id="orderOrderIDFilter" checked>
+            <label class="form-check-label" for="orderOrderIDFilter" style="color: black">Order ID</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderCustomerIDFilter" checked>
+            <label class="form-check-label" for="orderCustomerIDFilter" style="color: black">CustomerID</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderProductIDFilter" checked>
+            <label class="form-check-label" for="orderProductIDFilter" style="color: black">Product ID</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderShippingAddressIDFilter" checked>
+            <label class="form-check-label" for="orderShippingAddressIDFilter" style="color: black">Shipping Address ID</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderDriverSSNFilter" checked>
+            <label class="form-check-label" for="orderDriverSSNFilter" style="color: black">Driver SSN</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderQuantityFilter" checked>
+            <label class="form-check-label" for="orderQuantityFilter" style="color: black">Quantity (kg)</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderDateOfOrderFilter" checked>
+            <label class="form-check-label" for="orderDateOfOrderFilter" style="color: black">Date of Order</label>
+            <hr>
+            <input class="form-check-input" type="checkbox" value="" id="orderDeadlineFilter" checked>
+            <label class="form-check-label" for="orderDeadlineFilter" style="color: black">Deadline</label>
+          </div>
+        </div>
+
+      </ul>
+    </div>
+    <main class="bmd-layout-content">
+      <div id="mainContentContainer" style="margin-top: 75px;">
+        <hr style="margin-top: 50px;">
+        <h1>Product</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">UnitCost</th>
+              <th scope="col">SellPrice</th>
+              <th scope="col">Description</th>
+              <th scope="col">StockQuantity</th>
+            </tr>
+           
+          </thead>
+          <tbody id="product-table-body-1">
+     
+          </tbody>
+        </table>
+        <hr style="margin-top: 50px;">
+       
+        <hr style="margin-top: 50px;">
+
+        <h1>Order</h1>
+
+        <hr style="margin-top: 50px;">
+
+        <h1>Manufacturer</h1>
+
+        <hr style="margin-top: 50px;">
+
+      </div>
+
+
+
+      
+     
+
+
+      <h2>Add Product Trial Section</h2>
+      <form onsubmit="return onInsertProduct(event)" id = "Zhentest1" method="POST" >
+        <label for="Name">Name:</label>
+        <input type="text" id="t_ProductName" name="Name" required><br><br>
+        <label for="UnitCost">UnitCost:</label>
+        <input type="text" id="t_UnitCost" name="UnitCost"><br><br>
+        <label for="SellPrice">SellPrice:</label>
+        <input type="text" id="t_SellPrice" name="SellPrice"><br><br>
+        <label for="Description">Description:</label>
+        <input type="text" id="t_Description" name="Description"><br><br>
+        <label for="StockQuantity">StockQuantity:</label>
+        <input type="text" id="t_StockQuantity" name="StockQuantity"><br><br>
+        <button type="submit" id="product-insert-btn">Insert Product</button>
+      </form>
+
+      <h2>DeleteProduct Trial Section</h2>
+      <form onsubmit="return onProductDelete(event)" method="POST" >
+        <label for="Name">Name:</label>
+        <input type="text" id="t_Name_delete" name="Name" required><br><br>
+        <button type="submit" id="product-delete-btn">delete Product with Name</button>
+        </form>
+    </main>
+
+    <div class="modal fade" id="manualModal" tabindex="-1" role="dialog" aria-labelledby="Manual Buy Stock"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            <div id="buyTitle" class="modal-title" style="color: white; font-size : 36px;">Manual Stock Purchase</div>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="inputStock" class="modal-labels">Stock:</label>
+              <input type="text" class="input-textbox" id="inputStock">
+            </div>
+            <button id="findStockButton" type="button" class="btn modal-button" data-dismiss="modal" data-toggle="modal"
+              data-target="#templateModal">Find Stock</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>
+    $("body").bootstrapMaterialDesign();
+  </script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- Zhen addedlibrary -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Zhen addedBackEnd js -->
+  <script src="scripts/BE_Product_direct_calling.js"></script>
+  <script src="scripts/BE_Customer_direct_calling.js"></script>
+  <script src="scripts/BE_URL_AJAX_Calling.js"></script>
+  <script src="scripts/BE_onInsertEmploy.js"></script>
+  <script src="scripts/BE_DeleteEmployee.js"></script>
+  <script src="scripts/BE_DeleteCustomer.js"></script>
+  <script src="scripts/BE_SearchCustomer.js"></script>
+  <script src="scripts/BE_DeleteProduct.js"></script>
+  <script src="scripts/BE_onInsertProduct.js"></script>
+  <script src="scripts/BE_SearchProduct.js"></script>
+  <script src="scripts/BE_Employee_Update.js"></script>
+  <script src="scripts/BE_Customer_Update.js"></script>
+  <script src="scripts/BE_Get_Company.js"></script>
+  <script src="scripts/BE_onInsertCustomer.js"></script>
+  <script src="scripts/BE_onInsertCompany.js"></script>
+  
+ 
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+Name,Unit,Cost,SellPrice,Monthly Output,Producing Factory,Storage Factory,StockQuantity,Description,MadeBy(Manufacturer Name)
+JianShang,Jian,,56.6,200,JiaLei,YiLei,800,WeiHuaPing,Material Store
+DuMeng,Jv,39.2,200,,,DingLei,903,YiRanPing,Flash Furniture
+HuaShiFen,Dun,88.33,250.3,,,DingLei,900,GaoWeiPing,Wise Furniture
+HuaShui,Jian,449.4,800.3,,,GengLei,203,YiRanPing,Saft Furniture
+ChiFan,Jv,500.23,909.4,,,GengLei,700,GaoWeiPing,Flash Furniture
+DaBiDou,Dun,,20,5000,JiaLei,YiLei,23,WeiHuaPing,Material Store
+QiHaFen,Jv,,300.5,1000,MaoLei,HuanLei,19,WeiHuaPing,Material Store
+SaiErDa,Dun,934.2,2300.3,,,HuanLei,542,YIBanPing,Advance Furniture
+DaBiaoKe,Jian,,5000,40,BingLei,YiLei,1090,YIBanPing,Material Store
+YuZhongMaoXian,Dun,1042.76,3032.65,,,GengLei,2500,YiRanPing,KaKe Furniture
+ChuanShanJia,Jian,60.33,23.56,,,GengLei,230,GaoWeiPing,Saft Furniture
+DuMeng,Jv,,200,900,BingLei,DingLei,903,YiRanPing,Material Store
+DuMeng,Jv,54.2,200,,,DingLei,903,YiRanPing,Advance Furniture
+SaiErDa,Dun,1032.5,2300.3,100,JiaLei,HuanLei,900,YIBanPing,Flash Furniture
+YouQi,Dun,11.9,128.3,300,MaoLei,YiLei,203,WeiHuaPing,Wise Furniture
+YouQi,Jian,10.4,1278.1,400,,,700,YIBanPing,Saft Furniture
+JiaoShouJia,Jv,190.1,1920.1,280,BingLei,YiLei,23,YIBanPing,Flash Furniture
+HunNingTu,Jv,190.,1792.2,300,,HuanLei,19,YiRanPing,Advance Furniture
+HunNingTu,Dun,,1903.1,,,,542,GaoWeiPing,Material Store
+XiuYating,Dun,281.33,1290.0,109,BingLei,YiLei,1090,YiRanPing,Saft Furniture
+JiahaoFen,Jian,,1930.1,,,HuanLei,2500,YiRanPing,Material Store
+HuaLi,Jv,,500.0,,,,19,YIBanPing,Material Store
